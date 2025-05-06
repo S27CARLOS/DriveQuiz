@@ -61,3 +61,47 @@ const quizData = [
   function carregarPergunta() {
     container.innerHTML = "";
     const questao = quizData[perguntaAtual];
+
+const perguntaEl = document.createElement("div");
+    perguntaEl.classList.add("question");
+    perguntaEl.innerText = `(${perguntaAtual + 1}) ${questao.pergunta}`;
+    container.appendChild(perguntaEl);
+    
+    questao.opcoes.forEach((opcao, index) => {
+      const label = document.createElement("label");
+      label.classList.add("option");
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = "resposta";
+      radio.value = index;
+      label.appendChild(radio);
+      label.append(` ${opcao}`);
+      container.appendChild(label);
+    });
+  }
+  
+  nextBtn.addEventListener("click", () => {
+    const selecionada = document.querySelector("input[name='resposta']:checked");
+    if (!selecionada) {
+      alert("Por favor, selecione uma resposta.");
+      return;
+    }
+  
+    const resposta = parseInt(selecionada.value);
+    if (resposta === quizData[perguntaAtual].correta) {
+      pontuacao++;
+    }
+  
+    perguntaAtual++;
+  
+    if (perguntaAtual < quizData.length) {
+      carregarPergunta();
+    } else {
+      container.innerHTML = "";
+      nextBtn.style.display = "none";
+      result.innerHTML = `<h2>Resultado Final</h2><p>Você acertou ${pontuacao} de ${quizData.length} perguntas.</p>`;
+    }
+  });
+  
+  carregarPergunta();
+  
