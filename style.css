@@ -1,0 +1,58 @@
+/* Paleta baseada na bandeira do Espírito Santo */
+:root {
+    --azul: #0075c9;
+    --rosa: #e38cb7;
+    --branco: #ffffff;
+    --cinza: #f0f0f0;
+    --sombra: rgba(0, 0, 0, 0.1);
+  }
+  
+  body {
+    background: linear-gradient(to right, var(--azul), var(--rosa));
+    font-family: 'Segoe UI', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+  }
+  
+  .login-container {
+    background-color: var(--branco);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px var(--sombra);
+    text-align: center;
+    width: 300px;
+  }
+  
+  .login-container h1 {
+    color: var(--azul);
+    margin-bottom: 25px;
+  }
+  
+  .login-container input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid var(--rosa);
+    border-radius: 8px;
+    font-size: 16px;
+  }
+  
+  .login-container button {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--azul);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .login-container button:hover {
+    background-color: #005ea8;
+  }
+  
